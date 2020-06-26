@@ -14,14 +14,9 @@ export class HeaderComponent implements OnInit {
   }
   openNav() {
     document.getElementById("myNav").style.width = "100%";
-    let myTag = this.el.nativeElement.querySelector("span");
-    console.log(myTag.classlist);
-    this.open.nativeElement.classlist.add('fade');
+    console.log("asdas");
   }
   closeNav() {
     document.getElementById("myNav").style.width = "0%";
-    let myTag = this.el.nativeElement.querySelector("span");
-    // myTag.classlist.remove('fade');
-    // console.log("asdas");
   }
 }

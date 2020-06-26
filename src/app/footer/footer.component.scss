@@ -1,23 +1,10 @@
-$lt-gray: #ddd;
-$background-dark: #512DA8;
-$background-light: #9575CD;
-$background-pale: #D1C4E9;
-
-@mixin zero-margin() {
-    margin: 0px auto;
-    padding: 20px 0px;
-}
-
 .footer{
-    background-color: $background-pale;
-    
+    background-color: transparent;
     margin-bottom: 0;
-
 }
-
-.btn-facebook {color:#fff!important; background-color:#3b5998!important;}
-.btn-google-plus{color:#fff!important;background-color:#dd4b39!important;}
-.btn-youtube{color:#fff!important;background-color:#ff4b39!important;}
-.btn-linkedin{color:#fff!important;background-color:#007bb6!important;}
-.btn-twitter{color:#fff!important;background-color:#55acee!important;}
-.btn-mail{color:#fff!important;background-color:#512DA8!important;}
+.example-spacer {
+    flex: 1 1 auto;
+}
+a:hover{
+    cursor:grab;
+}

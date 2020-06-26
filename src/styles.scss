@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import 'variables';
+@import '../node_modules/font-awesome/scss/font-awesome';
+
+.spacer{
+    flex:1;
+}
+body{
+    min-height:100vh;
+}
+a{
+    text-decoration: none;
+    color:black;
+}

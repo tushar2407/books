@@ -2,28 +2,43 @@
     <div class="container">
         <div class="row justify-content-center align-items-center">
             <h1>Search Your Books here </h1>
-            <input
-                [formControl]="queryField"
-                id="keyword"
-                type="search"
-                class="form-control"
-            />
+            <form [formGroup]="myGroup" (ngSubmit)="search(myGroup.value)">
+                <input
+                    id="keyword"
+                    type="search"
+                    class="form-control"
+                    placeholder="books"
+                    name="query"
+                    formControlName="query"
+                    matInput
+                    (keyup)="searchTerm.next($event)"
+                /><br>
+                <button type="submit">Search</button>
+            </form>
         </div>
     </div>
 </div>
-<div class="container-fluid mt-4">
+<p>{{values}}</p>
+<p>{{searchResults | json }}</p>
+<ul>
+    <li *ngFor="let r of items"> 
+        {{r | json }} asdalkn
+    </li>
+</ul>
+<div class="container-fluid mt-4" *ngIf="loading">
     <div class="container">
         <div class="row justify-content-center align-items-center md-5">
             <div class="col-lg-12">
                 <input
                     class="form-control"
-                    [formControl]='queryField'
+                    [formControl]='query'
                     type="search"
                     id="keyword"
                     placeholder="Search authors"
                     typehead-wait-ms="delay"
                     autocomplete="off"
-                />
+                /><br>
+                
             </div>
             <div class="col-12 mt-5" *ngIf="items">
                 <div class="row justify-content-around">

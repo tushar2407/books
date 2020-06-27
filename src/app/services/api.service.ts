@@ -7,7 +7,7 @@ import {baseURL} from '../shared/baseurl';
   providedIn: 'root'
 })
 export class ApiService {
-  key="";
+  key="AIzaSyCS35jxrClTDoruG_cA5fw-ugD57HALmvo";
   constructor(
     private httpClient:HttpClient
   ) { }

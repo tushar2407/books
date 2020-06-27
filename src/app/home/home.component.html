@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center align-items-center">
             <h1>Search Your Books here </h1>
-            <form [formGroup]="myGroup" (ngSubmit)="search(myGroup.value)">
+            <form [formGroup]="myGroup" >
                 <input
                     id="keyword"
                     type="search"
@@ -18,13 +18,23 @@
         </div>
     </div>
 </div>
-<p>{{values}}</p>
+<!--<p>{{values}}</p>-->
 <p>{{searchResults | json }}</p>
-<ul>
+<!--<ol>
     <li *ngFor="let r of items"> 
         {{r | json }} asdalkn
     </li>
-</ul>
+</ol>-->
+<ol>
+    <p>asdasdasd</p>
+    <li *ngFor="let a of BookList">
+        <p>{{a.title}}</p>
+        <p>{{a.subtitle}}</p>
+        <p>{{a.id}}</p>
+        <p>{{a.url}}</p>
+        <p>{{a.publisher}}</p>
+    </li>
+</ol>
 <div class="container-fluid mt-4" *ngIf="loading">
     <div class="container">
         <div class="row justify-content-center align-items-center md-5">

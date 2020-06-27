@@ -11,9 +11,9 @@ export class ApiService {
   constructor(
     private httpClient:HttpClient
   ) { }
-  get(queryField: string){
+  get(queryField: string):Observable<any>{
     return this.httpClient.get(
-      baseURL+"?q=${queryField}&maxResults=40&keyes&key=${this.key}"
+      baseURL+"?q="+queryField+"&maxResults=40&key="+this.key
     );
   }
 }

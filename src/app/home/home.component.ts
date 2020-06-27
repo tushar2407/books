@@ -15,6 +15,7 @@ import {
 import { ApiService } from '../services/api.service';
 import {HttpClient} from '@angular/common/http';
 import {baseURL} from '../shared/baseurl';
+import {Book} from '../shared/book';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
   queryurl='?q=';
   searchResults:any;
   searchTerm=new Subject<String>();
+  BookList:Book[];
   // =new FormGroup({
   //   query: new FormControl('')
   // });
@@ -41,11 +43,11 @@ export class HomeComponent implements OnInit {
     });
     this.searchTerm.pipe(
       map((e:any)=>e.target.value),
-      debounceTime(400),
+      debounceTime(1000),
       distinctUntilChanged(),
       filter(term=>term.length>0),
     ).subscribe(searchterm=>{
-      this.loading=true;
+      this.loading=false;
       this._searchEntries(searchterm);
     });
   }
@@ -55,18 +57,18 @@ export class HomeComponent implements OnInit {
     // this.myGroup['query'].valueChanges.subscribe(
     //   result => console.log(result)
     // );
-    console.log('preparing to load...')
-        let node = document.createElement('script');
-        node.src = 'https://www.google.com/books/jsapi.js';
-        node.type = 'text/javascript';
-        node.async = true;
-        node.charset = 'utf-8';
-        document.getElementsByTagName('head')[0].appendChild(node);
+    // console.log('preparing to load...')
+    //     let node = document.createElement('script');
+    //     node.src = 'https://www.google.com/books/jsapi.js';
+    //     node.type = 'text/javascript';
+    //     node.async = true;
+    //     node.charset = 'utf-8';
+    //     document.getElementsByTagName('head')[0].appendChild(node);
   }
-  search(data){
-    console.log(data.valueChanges.subscribe());
-    console.log(this.myGroup['query'].valueChanges.subscribe());
-  }
+  // search(data){
+  //   console.log(data.valueChanges.subscribe());
+  //   console.log(this.myGroup['query'].valueChanges.subscribe());
+  // }
   values='';
   onKeyUp(event :any){
     this.values=event.target.value;
@@ -76,20 +78,46 @@ export class HomeComponent implements OnInit {
       map(response => {
         this.searchResults=response;
         this.items=this.searchResults['items'];
+        console.log(typeof this.items);
+        console.log("asdasda");
+        this.addBooks();
         console.log(this.items);
       })
-    )
+    );
+  }
+  addBooks(){
+    //for(var i=0; i<this.items.length();i++){
+      var i=0;  
+    var temp=new Book();
+      temp.id=this.items[i]['id'];
+      temp.url=this.items[i]['selfLink'];
+      temp.title=this.items[i]['volumeInfo']['title'];
+      temp.subtitle=this.items[i]['volumeInfo']['subtitle'];
+      temp.author=this.items[i]['volumeInfo']['author'];
+      temp.publisher=this.items[i]['volumeInfo']['publisher'];
+      temp.publishedDate=this.items[i]['volumeInfo']['publishedDate'];
+      temp.description=this.items[i]['volumeInfo']['description'];
+      temp.pageCount=this.items[i]['volumeInfo']['pageCount'];
+      temp.maturity=this.items[i]['volumeInfo']['maturityRating'];
+      this.BookList.push(temp);
+    //}
+    console.log(this.BookList[0]);
+  }
+  entries(term):Observable<any>{
+    return this.apiService.get(term).pipe(
+      map(response=>{
+        this.searchResults=response;
+        this.items=this.searchResults['items'];
+      })
+    );
   }
   _searchEntries(term){
-    this.searchEntries(term).subscribe(response=>{
-      this.loading=true;
+    this.entries(term).subscribe(response=>{
+      //this.loading=true;
+      this.loading=false;
     },err=>{
       this.loading=false;
     })
   }
-  // initialize() {
-  //   google.books.load();
-  //   var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
-  //   viewer.load('ISBN:0738531367');
-  // }
+  
 }

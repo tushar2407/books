@@ -1,16 +1,16 @@
 export class Book{
-    title:string;
-    subtitle:string;
-    publishedDate:string;
-    author:string[];
-    image:string;
-    url:string;
-    maturity:string;
-    id:string;
-    publisher:string;
-    description:string;
-    pageCount:number;
-    category:string;
-    webReaderLink:string;
-    pdf:boolean;
+    title:any;
+    subtitle:any;
+    publishedDate:any;
+    author:any[];
+    image:any;
+    url:any;
+    maturity:any;
+    id:any;
+    publisher:any;
+    description:any;
+    pageCount:any;
+    category:any;
+    webReaderLink:any;
+    pdf:any;
 }

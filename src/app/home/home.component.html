@@ -19,14 +19,17 @@
     </div>
 </div>
 <!--<p>{{values}}</p>-->
-<p>{{searchResults | json }}</p>
-<!--<ol>
+<!--<p>{{searchResults | json }}</p>-->
+<ol>
     <li *ngFor="let r of items"> 
-        {{r | json }} asdalkn
+        {{r.selfLink  }} asdalkn
     </li>
-</ol>-->
+</ol>
 <ol>
     <p>asdasdasd</p>
+    <p>{{count }}</p>
+    <p>{{obj}}</p>
+    <p>{{BookList}}</p>
     <li *ngFor="let a of BookList">
         <p>{{a.title}}</p>
         <p>{{a.subtitle}}</p>

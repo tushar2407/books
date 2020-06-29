@@ -1,7 +1,6 @@
 <div *ngIf="!loading" class="container-fluid hero-page1">
     <div class="container">
-        <div class="row justify-content-center align-items-center">
-            <h1>Search Your Books here </h1>
+        <div class="row ">
             <form [formGroup]="myGroup" >
                 <input
                     id="keyword"
@@ -13,7 +12,7 @@
                     matInput
                     (keyup)="searchTerm.next($event)"
                 /><br>
-                <button type="submit">Search</button>
+                <button type="submit">Search<i class="fa fa-search" aria-hidden="true"></i></button>
             </form>
         </div>
     </div>
@@ -21,24 +20,20 @@
 <!--<p>{{values}}</p>-->
 <!--<p>{{searchResults | json }}</p>-->
 <ol>
-    <li *ngFor="let r of items"> 
-        {{r.selfLink  }} asdalkn
+    <li *ngFor="let r of items" > 
+        <div *ngIf="r.volumeInfo.authors">
+            {{r.volumeInfo.authors }}
+            <ul>
+               <li *ngFor="let a of r.volumeInfo.imageLinks | keyvalue">
+                <div *ngIf="a.key==='thumbnail'">
+                    {{a.value}}
+                </div>   
+               </li> 
+            </ul> 
+        </div>
     </li>
 </ol>
-<ol>
-    <p>asdasdasd</p>
-    <p>{{count }}</p>
-    <p>{{obj}}</p>
-    <p>{{BookList}}</p>
-    <li *ngFor="let a of BookList">
-        <p>{{a.title}}</p>
-        <p>{{a.subtitle}}</p>
-        <p>{{a.id}}</p>
-        <p>{{a.url}}</p>
-        <p>{{a.publisher}}</p>
-    </li>
-</ol>
-<div class="container-fluid mt-4" *ngIf="loading">
+<div class="container-fluid mt-4" *ngIf="!loading">
     <div class="container">
         <div class="row justify-content-center align-items-center md-5">
             <div class="col-lg-12">

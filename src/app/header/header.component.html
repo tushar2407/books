@@ -25,18 +25,20 @@
     </div>
     <div fxFlex fxFlex.gt-sm="20%">
       <img src="/assets/images/logo.png" alt="Logo">
-    </div>
+    </div
     <div fxFlex></div>
   </div>
 -->
-<h1>Books</h1>
+<div class="row">
+  <h1>Books <i class="fa fa-book" aria-hidden="true"></i></h1>
+</div>
 <div id="myNav" class="overlay">
   <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
   <div class="overlay-content">
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
+    <a href="#" data-text="About">About</a>
+    <a href="#" data-text="Services">Services</a>
+    <a href="#" data-text="Clients">Clients</a>
+    <a href="#" data-text="Contact">Contact</a>
   </div>
 </div>
 <span (click)="openNav()" class="menu" #open><i class="fa fa-bars menu" aria-hidden="true"></i></span>

@@ -1,0 +1,27 @@
+input[type=search] {
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+}
+button {
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+button:hover, input:hover{
+    transform: translateY(1.5px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+.row{
+    justify-content: center;
+    display: flex;
+}

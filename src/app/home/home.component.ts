@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   queryurl='?q=';
   searchResults:any;
   searchTerm=new Subject<String>();
-  BookList:any[];
+  BookList:any[]=[];
   count:any;
   obj:any;
   // =new FormGroup({
@@ -122,7 +122,10 @@ export class HomeComponent implements OnInit {
         // temp.pageCount=this.items[i]['volumeInfo']['pageCount'];
         // temp.maturity=this.items[i]['volumeInfo']['maturityRating'];
         // // console.log(temp);
-        // this.BookList.push(temp);
+        console.log("asdasd");
+          this.BookList.push(this.items);
+         this.BookList.push(4);
+         console.log("asdas");
         // console.log(this.BookList[0]);
         // // this.searchResults['items'].forEach(function (o){
         // //   this.items.push(o);

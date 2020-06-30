@@ -28,9 +28,10 @@ export class HomeComponent implements OnInit {
   queryurl='?q=';
   searchResults:any;
   searchTerm=new Subject<String>();
-  BookList:any[]=[];
+  BookList;
   count:any;
   obj:any;
+  temp:Book;
   // =new FormGroup({
   //   query: new FormControl('')
   // });
@@ -57,6 +58,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading=false;
+    this.BookList=[];
+    console.log(this.BookList);
+    console.log("Hum raja j");
+    this.temp=new Book();
     // this.myGroup['query'].valueChanges.subscribe(
     //   result => console.log(result)
     // );
@@ -85,55 +90,19 @@ export class HomeComponent implements OnInit {
   //     })
   //   );
   // }
-  // addBooks(){
-  //   //for(var i=0; i<this.items.length();i++){
-  //     var i=0;  
-  //     var temp=new Book();
-  //     temp.id=this.items[i]['id'];
-  //     temp.url=this.items[i]['selfLink'];
-  //     temp.title=this.items[i]['volumeInfo']['title'];
-  //     temp.subtitle=this.items[i]['volumeInfo']['subtitle'];
-  //     temp.author=this.items[i]['volumeInfo']['author'];
-  //     temp.publisher=this.items[i]['volumeInfo']['publisher'];
-  //     temp.publishedDate=this.items[i]['volumeInfo']['publishedDate'];
-  //     temp.description=this.items[i]['volumeInfo']['description'];
-  //     temp.pageCount=this.items[i]['volumeInfo']['pageCount'];
-  //     temp.maturity=this.items[i]['volumeInfo']['maturityRating'];
-  //     this.BookList.push(temp);
-  //   //}
-  //     console.log(this.BookList[0]);
-  // }
   entries(term):Observable<any>{
     return this.apiService.get(term).pipe(
       map(response=>{
         this.searchResults=response;
         this.items=this.searchResults['items'];
-        // console.log(typeof response);
-        // var temp=new Book();
-        // var i=0;
-        // console.log(typeof i);
-        // temp.url=this.items[i]['selfLink'];
-        // temp.title=this.items[i]['volumeInfo']['title'];
-        // temp.subtitle=this.items[i]['volumeInfo']['subtitle'];
-        // temp.author=this.items[i]['volumeInfo']['author'];
-        // temp.publisher=this.items[i]['volumeInfo']['publisher'];
-        // temp.publishedDate=this.items[i]['volumeInfo']['publishedDate'];
-        // temp.description=this.items[i]['volumeInfo']['description'];
-        // temp.pageCount=this.items[i]['volumeInfo']['pageCount'];
-        // temp.maturity=this.items[i]['volumeInfo']['maturityRating'];
-        // // console.log(temp);
-        console.log("asdasd");
-          this.BookList.push(this.items);
-         this.BookList.push(4);
-         console.log("asdas");
-        // console.log(this.BookList[0]);
-        // // this.searchResults['items'].forEach(function (o){
-        // //   this.items.push(o);
-        // // });
-        // this.count=this.searchResults['totalItems'];
-        // // console.log("asdasd");
-        // // this.obj=this.searchResults['items'][1]['id'];
-        //  console.log(typeof this.obj);
+        // this.items.forEach(function(value){
+        //   console.log(typeof value);
+        //   this.BookList.push(value);
+        // });
+        //this.BookList.push(this.items);
+        console.log(this.BookList);
+        console.log(typeof this.items);
+        console.log("asdas");
       })
     );
   }
@@ -142,6 +111,23 @@ export class HomeComponent implements OnInit {
       //this.loading=true;
       //this.obj=response;
       this.loading=false;
+      console.log(response);
+      console.log("WRwe");
+      for(var i=0;i<this.items.length;i++){
+        //console.log(this.items[i])
+        this.temp.id=this.items[i].id;
+        this.temp.url=this.items[i].selfLink;
+        this.temp.title=this.items[i].volumeInfo.title;
+        this.temp.subtitle=this.items[i].volumeInfo.subtitle;
+        this.temp.author=this.items[i].volumeInfo.author;
+        this.temp.publisher=this.items[i].volumeInfo.publisher;
+        this.temp.publishedDate=this.items[i].volumeInfo.publishedDate;
+        this.temp.description=this.items[i].volumeInfo.description;
+        this.temp.pageCount=this.items[i].volumeInfo.pageCount;
+        this.temp.maturity=this.items[i].volumeInfo.maturityRating;
+        this.BookList.push(this.temp);
+        console.log(this.BookList[i]);
+      }
     },err=>{
       this.loading=false;
     })

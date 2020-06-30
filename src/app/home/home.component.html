@@ -21,8 +21,8 @@
 <!--<p>{{searchResults | json }}</p>-->
 <ol>
     <li *ngFor="let r of items" > 
-        <div *ngIf="r.volumeInfo.authors">
-            {{r.volumeInfo.authors }}
+        <div *ngIf="r.volumeInfo">
+            {{r|json }}
             <ul>
                <li *ngFor="let a of r.volumeInfo.imageLinks | keyvalue">
                 <div *ngIf="a.key==='thumbnail'">
@@ -33,6 +33,13 @@
         </div>
     </li>
 </ol>
+<hr>
+<ul>
+    <li *ngFor="let a of BookList">
+        {{a}}
+    </li>
+</ul>
+<!--
 <div class="container-fluid mt-4" *ngIf="!loading">
     <div class="container">
         <div class="row justify-content-center align-items-center md-5">
@@ -75,3 +82,4 @@
         </div>
     </div>
 </div>
+-->

@@ -19,7 +19,7 @@
 </div>
 <!--<p>{{values}}</p>-->
 <!--<p>{{searchResults | json }}</p>-->
-<ol>
+<!--<ol>
     <li *ngFor="let r of items" > 
         <div *ngIf="r.volumeInfo">
             {{r|json }}
@@ -32,11 +32,30 @@
             </ul> 
         </div>
     </li>
-</ol>
+</ol>-->
 <hr>
+<div class="main center" *ngFor="let a of BookList">
+    <div class="box center">
+        <img src="{{a.image}}">
+        <h2>{{a.title}}</h2>
+        <p>{{a.subtitle}}</p>
+        <p>{{a.author}}</p>
+        <p>{{a.publisher}}</p>
+    </div>
+</div>
 <ul>
     <li *ngFor="let a of BookList">
-        {{a}}
+        <p>{{a.id}}</p>
+        <p>{{a.url}}</p>
+        <p>{{a.title}}</p>
+        <p>{{a.subtitle}}</p>
+        <p>{{a.author}}</p>
+        <p>{{a.publisher}}</p>
+        <p>{{a.publishedDate}}</p>
+        <p>{{a.description}}</p>
+        <p>{{a.pageCount}}</p>
+        <p>{{a.maturity}}</p>
+        <img src="{{a.image}}">
     </li>
 </ul>
 <!--

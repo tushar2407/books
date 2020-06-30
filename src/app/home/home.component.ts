@@ -111,10 +111,8 @@ export class HomeComponent implements OnInit {
       //this.loading=true;
       //this.obj=response;
       this.loading=false;
-      console.log(response);
-      console.log("WRwe");
       for(var i=0;i<this.items.length;i++){
-        //console.log(this.items[i])
+        this.temp=new Book();
         this.temp.id=this.items[i].id;
         this.temp.url=this.items[i].selfLink;
         this.temp.title=this.items[i].volumeInfo.title;
@@ -125,6 +123,7 @@ export class HomeComponent implements OnInit {
         this.temp.description=this.items[i].volumeInfo.description;
         this.temp.pageCount=this.items[i].volumeInfo.pageCount;
         this.temp.maturity=this.items[i].volumeInfo.maturityRating;
+        this.temp.image=this.items[i].volumeInfo.imageLinks.thumbnail;
         this.BookList.push(this.temp);
         console.log(this.BookList[i]);
       }

@@ -94,15 +94,9 @@ export class HomeComponent implements OnInit {
     return this.apiService.get(term).pipe(
       map(response=>{
         this.searchResults=response;
-        this.items=this.searchResults['items'];
-        // this.items.forEach(function(value){
-        //   console.log(typeof value);
-        //   this.BookList.push(value);
-        // });
-        //this.BookList.push(this.items);
-        console.log(this.BookList);
-        console.log(typeof this.items);
-        console.log("asdas");
+         setTimeout(()=>{
+          this.items=this.searchResults['items'];
+         },1000);
       })
     );
   }
@@ -111,22 +105,27 @@ export class HomeComponent implements OnInit {
       //this.loading=true;
       //this.obj=response;
       this.loading=false;
-      for(var i=0;i<this.items.length;i++){
-        this.temp=new Book();
-        this.temp.id=this.items[i].id;
-        this.temp.url=this.items[i].selfLink;
-        this.temp.title=this.items[i].volumeInfo.title;
-        this.temp.subtitle=this.items[i].volumeInfo.subtitle;
-        this.temp.author=this.items[i].volumeInfo.author;
-        this.temp.publisher=this.items[i].volumeInfo.publisher;
-        this.temp.publishedDate=this.items[i].volumeInfo.publishedDate;
-        this.temp.description=this.items[i].volumeInfo.description;
-        this.temp.pageCount=this.items[i].volumeInfo.pageCount;
-        this.temp.maturity=this.items[i].volumeInfo.maturityRating;
-        this.temp.image=this.items[i].volumeInfo.imageLinks.thumbnail;
-        this.BookList.push(this.temp);
-        console.log(this.BookList[i]);
-      }
+      var i=0;
+      this.BookList=[];
+      setInterval(()=>{
+        if(i<this.items.length){
+          this.temp=new Book();
+          this.temp.id=this.items[i].id;
+          this.temp.url=this.items[i].selfLink;
+          this.temp.title=this.items[i].volumeInfo.title;
+          this.temp.subtitle=this.items[i].volumeInfo.subtitle;
+          this.temp.author=this.items[i].volumeInfo.author;
+          this.temp.publisher=this.items[i].volumeInfo.publisher;
+          this.temp.publishedDate=this.items[i].volumeInfo.publishedDate;
+          this.temp.description=this.items[i].volumeInfo.description;
+          this.temp.pageCount=this.items[i].volumeInfo.pageCount;
+          this.temp.maturity=this.items[i].volumeInfo.maturityRating;
+          if(this.items[i].volumeInfo.imageLinks.thumbnail)
+            this.temp.image=this.items[i].volumeInfo.imageLinks.thumbnail;
+          this.BookList.push(this.temp);
+          i++;
+        }
+      },200);
     },err=>{
       this.loading=false;
     })

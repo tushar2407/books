@@ -34,16 +34,18 @@
     </li>
 </ol>-->
 <hr>
-<div class="main center" *ngFor="let a of BookList">
-    <div class="box center">
-        <img src="{{a.image}}">
+<div class="card" *ngFor="let a of BookList">
+    <div class="content">
+        <div class="image">
+            <img src="{{a.image}}">
+        </div>
         <h2>{{a.title}}</h2>
         <p>{{a.subtitle}}</p>
         <p>{{a.author}}</p>
         <p>{{a.publisher}}</p>
     </div>
 </div>
-<ul>
+<!--<ul>
     <li *ngFor="let a of BookList">
         <p>{{a.id}}</p>
         <p>{{a.url}}</p>
@@ -57,7 +59,7 @@
         <p>{{a.maturity}}</p>
         <img src="{{a.image}}">
     </li>
-</ul>
+</ul>-->
 <!--
 <div class="container-fluid mt-4" *ngIf="!loading">
     <div class="container">

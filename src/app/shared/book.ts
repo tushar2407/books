@@ -13,4 +13,5 @@ export class Book{
     category:any;
     webReaderLink:any;
     pdf:any;
+    rating:any;
 }

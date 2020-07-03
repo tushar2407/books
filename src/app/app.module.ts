@@ -21,13 +21,16 @@ import 'rxjs';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 // pagination
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { CardComponent } from './card/card.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    
+    CardComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCardModule,
+    MatButtonModule,
   ],
   providers: [
     {provide: 'BaseURL', useValue:baseURL},

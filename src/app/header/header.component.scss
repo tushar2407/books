@@ -102,11 +102,7 @@ i{
     opacity: 1;
     font-size: 20px;
 }
-i:hover{
-    opacity: 0.5;
-    transform: rotate(90deg);
-    transition: all 0.5s;
-}
+
 span{
     opacity:1;
     transition: all 1s;
@@ -123,10 +119,19 @@ h1{
   width: max-content;
   border-radius: 10px;
   padding:5px;
-}
-h1:hover{
+  transition: all 1s ease;
+  font-size: 50px;
   transform: translateY(1.5px);
   box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-  transform: rotate(360deg);
+}
+/*h1:hover{
+  transform: translateY(1.5px);
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
   transition: all 1s ease;
+}*/
+h1:hover{
+  cursor: none;
+}
+i{
+  font-size: 50px;
 }

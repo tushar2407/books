@@ -6,21 +6,22 @@
                     id="keyword"
                     type="search"
                     class="form-control"
-                    placeholder="books"
+                    placeholder="Search Books or Magazines...."
                     name="query"
                     formControlName="query"
                     matInput
                     (keyup)="searchTerm.next($event)"
                 /><i class="fa fa-search" aria-hidden="true"></i>
-                <button type="submit">Search<i class="fa fa-search" aria-hidden="true"></i></button>
+                <!--<button type="submit">Search<i class="fa fa-search" aria-hidden="true"></i></button>-->
             </form>
         </div>
     </div>
 </div>
+<p style="text-align: center; color: rgba(255, 255, 255, 0.7); margin-top: 20px; margin-bottom: 20px;">Search for your favourite books from the largest library in the world.</p>
 <hr>
 <div class="card" *ngFor="let a of (BookList
     | slice : lowVal : highVal)">
-    <div class="content">
+    <div class="content" [routerLink]="['/book',a.id]">
         <div class="image">
             <img src="{{a.image}}">
         </div>
@@ -30,8 +31,8 @@
         <p>{{a.publisher}}</p>
     </div>
 </div>
-<div *ngIf="items.length>0" class="paginator">
-<mat-paginator color="accent" [length] ="items.length" [pageSize]="pageSize" (page)="getPaginatorData($event)" 
+<div *ngIf="items" class="paginator">
+<mat-paginator class="matpaginator" [length] ="items.length" [pageSize]="pageSize" (page)="getPaginatorData($event)" 
  showFirsLastButtons="true"></mat-paginator>
 </div>
 <!--

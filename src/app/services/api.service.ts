@@ -19,4 +19,9 @@ export class ApiService {
       baseURL+"?q="+queryField+"&maxResults=40&key="+this.key
     );
   }
+  getBook(id:string):Observable<any>{
+    return this.httpClient.get(
+      baseURL+'/'+id
+    );
+  }
 }

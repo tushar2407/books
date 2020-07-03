@@ -1,6 +1,6 @@
 .footer{
     background-color: transparent;
-    margin-bottom: 0;
+    margin-bottom: -100px;
     width: 100%;
 }
 .example-spacer {
@@ -8,4 +8,26 @@
 }
 a:hover{
     cursor:grab;
+}
+div>p{
+    transform: translateY(1.5px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+    width: 25vw;
+    text-align: center;
+    height: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: -100px;
+}
+@media(max-width:700px){
+    div>p{
+        transform: translateY(1.5px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+    width: 100vw;
+    text-align: center;
+    height: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: -100px;
+    }
 }

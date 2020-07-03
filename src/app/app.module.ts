@@ -18,12 +18,15 @@ import {ApiService} from './services/api.service';
 import {HttpClientModule} from '@angular/common/http';
 import 'rxjs';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+// pagination
+import {MatPaginatorModule} from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatIconModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule
   ],
   providers: [
     {provide: 'BaseURL', useValue:baseURL},

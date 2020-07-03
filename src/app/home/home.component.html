@@ -34,7 +34,9 @@
     </li>
 </ol>-->
 <hr>
-<div class="card" *ngFor="let a of BookList">
+
+<div class="card" *ngFor="let a of (BookList
+    | slice : lowVal : highVal)">
     <div class="content">
         <div class="image">
             <img src="{{a.image}}">
@@ -45,6 +47,9 @@
         <p>{{a.publisher}}</p>
     </div>
 </div>
+
+<mat-paginator [length] ="items.length" [pageSize]="pageSize" (page)="getPaginatorData($event)" 
+    [pageSizeOptions]='[5,10,15]' showFirsLastButtons="true"></mat-paginator>
 <!--<ul>
     <li *ngFor="let a of BookList">
         <p>{{a.id}}</p>

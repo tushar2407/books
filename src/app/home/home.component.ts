@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
   count:any;
   obj:any;
   temp:Book;
+  pageOfItems:Array<any>;
   // =new FormGroup({
   //   query: new FormControl('')
   // });
@@ -129,6 +130,22 @@ export class HomeComponent implements OnInit {
     },err=>{
       this.loading=false;
     })
+  }
+  pageIndex:number=0;
+  pageSize:number=5;
+  lowVal:number=0;
+  highVal:number=5;
+  getPaginatorData(event){
+    console.log(event);
+    if(event.pageIndex === this.pageIndex+1){
+      this.lowVal=this.lowVal+this.pageSize;
+      this.highVal=this.highVal+this.pageSize;
+    }
+    else if(event.pageIndex===this.pageIndex-1){
+      this.lowVal-=this.pageSize;
+      this.highVal-=this.pageSize;
+    }
+    this.pageIndex=event.pageIndex;
   }
   
 }

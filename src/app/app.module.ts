@@ -14,6 +14,7 @@ import {MatListModule} from '@angular/material/list';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatIconModule} from '@angular/material/icon';
 import {baseURL} from './shared/baseurl';
+import {Password} from '../../password';
 import {ApiService} from './services/api.service';
 import {HttpClientModule} from '@angular/common/http';
 import 'rxjs';
@@ -43,6 +44,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   ],
   providers: [
     {provide: 'BaseURL', useValue:baseURL},
+    {provide:'Password',useValue:Password},
     ApiService,
   ],
   bootstrap: [AppComponent]

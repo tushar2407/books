@@ -73,6 +73,7 @@ export class HomeComponent implements OnInit {
   values='';
   onKeyUp(event :any){
     this.values=event.target.value;
+    // console.log(this.values);
   }
   // searchEntries(term):Observable<any>{
   //   return this.http.get(baseURL+this.queryurl+term).pipe(

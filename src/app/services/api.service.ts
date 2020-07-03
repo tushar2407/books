@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
@@ -9,10 +9,10 @@ import {Password} from '../../../password';
   providedIn: 'root'
 })
 export class ApiService {
-  key=this.password.getKey();
+  key=this.Password;
   constructor(
     private httpClient:HttpClient,
-    private password:Password
+    @Inject('Password') public Password
   ) { }
   get(queryField: string):Observable<any>{
     return this.httpClient.get(

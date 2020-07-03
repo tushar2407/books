@@ -30,13 +30,8 @@ export class HomeComponent implements OnInit {
   searchTerm=new Subject<String>();
   BookList;
   count:any;
-  obj:any;
   temp:Book;
   pageOfItems:Array<any>;
-  // =new FormGroup({
-  //   query: new FormControl('')
-  // });
-  // query:FormControl= new FormControl();
   constructor(
     private apiService:ApiService,
     private formBuilder:FormBuilder,
@@ -53,15 +48,12 @@ export class HomeComponent implements OnInit {
     ).subscribe(searchterm=>{
       this.loading=false;
       this._searchEntries(searchterm);
-      //this.addBooks();
     });
   }
 
   ngOnInit(): void {
     this.loading=false;
     this.BookList=[];
-    console.log(this.BookList);
-    console.log("Hum raja j");
     this.temp=new Book();
     // this.myGroup['query'].valueChanges.subscribe(
     //   result => console.log(result)

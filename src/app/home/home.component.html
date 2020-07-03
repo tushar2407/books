@@ -11,30 +11,13 @@
                     formControlName="query"
                     matInput
                     (keyup)="searchTerm.next($event)"
-                /><br>
-                <button type="submit">Search<i class="fa fa-search" aria-hidden="true"></i></button>
+                /><i class="fa fa-search" aria-hidden="true"></i>
+                <!--<button type="submit">Search<i class="fa fa-search" aria-hidden="true"></i></button>-->
             </form>
         </div>
     </div>
 </div>
-<!--<p>{{values}}</p>-->
-<!--<p>{{searchResults | json }}</p>-->
-<!--<ol>
-    <li *ngFor="let r of items" > 
-        <div *ngIf="r.volumeInfo">
-            {{r|json }}
-            <ul>
-               <li *ngFor="let a of r.volumeInfo.imageLinks | keyvalue">
-                <div *ngIf="a.key==='thumbnail'">
-                    {{a.value}}
-                </div>   
-               </li> 
-            </ul> 
-        </div>
-    </li>
-</ol>-->
 <hr>
-
 <div class="card" *ngFor="let a of (BookList
     | slice : lowVal : highVal)">
     <div class="content">
@@ -47,24 +30,10 @@
         <p>{{a.publisher}}</p>
     </div>
 </div>
-
-<mat-paginator [length] ="items.length" [pageSize]="pageSize" (page)="getPaginatorData($event)" 
-    [pageSizeOptions]='[5,10,15]' showFirsLastButtons="true"></mat-paginator>
-<!--<ul>
-    <li *ngFor="let a of BookList">
-        <p>{{a.id}}</p>
-        <p>{{a.url}}</p>
-        <p>{{a.title}}</p>
-        <p>{{a.subtitle}}</p>
-        <p>{{a.author}}</p>
-        <p>{{a.publisher}}</p>
-        <p>{{a.publishedDate}}</p>
-        <p>{{a.description}}</p>
-        <p>{{a.pageCount}}</p>
-        <p>{{a.maturity}}</p>
-        <img src="{{a.image}}">
-    </li>
-</ul>-->
+<div *ngIf="items.length>0" class="paginator">
+<mat-paginator color="accent" [length] ="items.length" [pageSize]="pageSize" (page)="getPaginatorData($event)" 
+ showFirsLastButtons="true"></mat-paginator>
+</div>
 <!--
 <div class="container-fluid mt-4" *ngIf="!loading">
     <div class="container">

@@ -1,18 +1,18 @@
 <div class="container">
-<div class="card" *ngIf="book">
-    <div class="img">
+<div class="card" >
+    <div class="img" *ngIf='book'>
         <img src="{{book.image}}" alt="">
     </div>
     <h2>{{book.title}}</h2>
     <h4>{{book.subtitle}}</h4>
     <p><b>By: {{book.author}}</b></p>
-    <div class="desc">
-        <p >{{book.description}}</p>
+    <div class="desc" #desc id="desc">
+       <!--<p >{{book.description}}</p> --> 
     </div>
     
     <p><b>Publisher : {{book.publisher}}</b></p>
     <p><b>Pages: {{book.pageCount}}</b></p>
     <p><b>Rating : {{book.rating}}</b></p>
-    <a mat-raised-button href="{{book.url}}" target="_blank">View</a>
+    <a mat-raised-button href="{{book.url}}" target="_blank" *ngIf="book">View</a>
 </div>
 </div>

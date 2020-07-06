@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "books-bfc7d": {
+      "hosting": {
+        "books": [
+          "books-bfc7d"
+        ]
+      }
+    }
+  }
+}

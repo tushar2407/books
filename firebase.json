@@ -1,8 +1,22 @@
 {
   "hosting": [
     {
-      "target": "books",
       "public": "dist/books",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "books",
+      "public": "dist\\books\\dist\\books\\browser",
       "ignore": [
         "**/.*"
       ],
@@ -20,9 +34,12 @@
       "rewrites": [
         {
           "source": "**",
-          "destination": "/index.html"
+          "function": "ssr"
         }
       ]
     }
-  ]
+  ],
+  "functions": {
+    "source": "dist/books"
+  }
 }

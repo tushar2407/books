@@ -1,9 +1,12 @@
 {
+  "projects": {
+    "default": "tusharbooksa"
+  },
   "targets": {
-    "books-bfc7d": {
+    "tusharbooksa": {
       "hosting": {
         "books": [
-          "books-bfc7d"
+          "tusharbooksa"
         ]
       }
     }

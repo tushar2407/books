@@ -1,4 +1,4 @@
-input[type=search] {
+form, input[type=search] {
     padding: 6px;
     border: none;
     margin-top: 8px;
@@ -19,9 +19,14 @@ button {
   padding: 5px;
 }
 
-button:hover, input:hover{
-    transform: translateY(1.5px);
+button:hover, form:hover{
+    // transform: translateY(1.5px);
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+    transition-duration: 0.5s;
+}
+input:focus{
+  border:0px;
+  outline: 0;
 }
 .row{
     justify-content: center;

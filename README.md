@@ -30,4 +30,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - git add -A
 - git commit -m "<message>"
 - git push -u origin master
-- ng deploy --base-href=/books/
+- ng deploy --base-href books
